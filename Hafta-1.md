@@ -1,6 +1,6 @@
 [Oyuncak Makine](https://toy.emrecan.dev/)
 
-## 1. Üs alma — $a^b$)
+## 1. Üs alma — $a^b$
 
 Klavyeden önce taban, sonra üs alınır. Çarpma işlemi döngü içerisinde tekrarlanır. Üs negatif olmayan bir tam sayı olmalıdır.
 
