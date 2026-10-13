@@ -1,6 +1,6 @@
 [Oyuncak Makine](https://toy.emrecan.dev/)
 
-## 1. Üs alma — \\(a^b\\)
+## 1. Üs alma — $a^b$)
 
 Klavyeden önce taban, sonra üs alınır. Çarpma işlemi döngü içerisinde tekrarlanır. Üs negatif olmayan bir tam sayı olmalıdır.
 
@@ -41,9 +41,9 @@ sonuc   1
 
 Örnek: Taban `2`, üs `5` girilirse sonuç `32` olur. `0` üssü için sonuç `1` üretilir. Negatif üslerde hata göstergesi olarak `-1` yazdırılır.
 
-## 2. Faktöriyel — \\(n!\\)
+## 2. Faktöriyel — $n!$
 
-Klavyeden negatif olmayan bir tam sayı alınır ve \\(n \times (n-1) \times \cdots \times 1\\) hesaplanır.
+Klavyeden negatif olmayan bir tam sayı alınır ve $n \times (n-1) \times \cdots \times 1$ hesaplanır.
 
 ```
 
