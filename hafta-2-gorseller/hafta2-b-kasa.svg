@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="800" height="560" fill="#ffffff"/>
+
+  <text x="40" y="40" font-size="20" font-weight="700" fill="#1f2328">Fiyatlar tek tek girilir, 0 gelince sonuçlar yazılır</text>
+  <text x="40" y="64" font-size="14" fill="#57606a">20 TL'den fazla olan ürün pahalıdır. 20 TL'lik ürün pahalı sayılmaz.</text>
+  <text x="40" y="100" font-size="13" font-weight="600" fill="#57606a">Girilen fiyatlar (sırayla):</text>
+
+  <!-- fiyatlar -->
+  <g font-size="28" font-weight="700" text-anchor="middle">
+    <rect x="40"  y="112" width="84" height="72" rx="10" fill="#f6f8fa" stroke="#8c959f" stroke-width="2"/>
+    <text x="82"  y="158" fill="#1f2328">20</text>
+    <rect x="138" y="112" width="84" height="72" rx="10" fill="#fff8c5" stroke="#9a6700" stroke-width="2"/>
+    <text x="180" y="158" fill="#1f2328">35</text>
+    <rect x="236" y="112" width="84" height="72" rx="10" fill="#f6f8fa" stroke="#8c959f" stroke-width="2"/>
+    <text x="278" y="158" fill="#1f2328">5</text>
+    <rect x="334" y="112" width="84" height="72" rx="10" fill="#fff8c5" stroke="#9a6700" stroke-width="2"/>
+    <text x="376" y="158" fill="#1f2328">40</text>
+    <rect x="432" y="112" width="84" height="72" rx="10" fill="#f6f8fa" stroke="#8c959f" stroke-width="2"/>
+    <text x="474" y="158" fill="#1f2328">13</text>
+    <rect x="530" y="112" width="84" height="72" rx="10" fill="#eaeef2" stroke="#57606a" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="572" y="158" fill="#57606a">0</text>
+  </g>
+  <g font-size="14" font-weight="700" text-anchor="middle">
+    <text x="82"  y="208" fill="#57606a">normal</text>
+    <text x="180" y="208" fill="#9a6700">pahalı</text>
+    <text x="278" y="208" fill="#57606a">normal</text>
+    <text x="376" y="208" fill="#9a6700">pahalı</text>
+    <text x="474" y="208" fill="#57606a">normal</text>
+    <text x="572" y="208" fill="#57606a">bitiş</text>
+  </g>
+
+  <!-- ok -->
+  <path d="M572 218V390" stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#ok)"/>
+  <text x="584" y="244" font-size="13" fill="#57606a">0 gelince</text>
+
+  <!-- ödeme -->
+  <text x="40" y="244" font-size="13" font-weight="600" fill="#57606a">Toplam: 20 + 35 + 5 + 40 + 13 = 113 TL</text>
+  <text x="40" y="290" font-size="13" font-weight="600" fill="#57606a">Ödeme: 50 TL'lik banknotlar + kalan tutar</text>
+  <g>
+    <rect x="40"  y="304" width="130" height="64" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+    <rect x="48"  y="312" width="114" height="48" rx="4" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="105" y="345" font-size="22" font-weight="700" text-anchor="middle" fill="#1a7f37">50 TL</text>
+    <text x="190" y="346" font-size="24" font-weight="700" text-anchor="middle" fill="#57606a">+</text>
+    <rect x="210" y="304" width="130" height="64" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+    <rect x="218" y="312" width="114" height="48" rx="4" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="275" y="345" font-size="22" font-weight="700" text-anchor="middle" fill="#1a7f37">50 TL</text>
+    <text x="360" y="346" font-size="24" font-weight="700" text-anchor="middle" fill="#57606a">+</text>
+    <circle cx="414" cy="336" r="38" fill="#fff8c5" stroke="#9a6700" stroke-width="2"/>
+    <text x="414" y="343" font-size="18" font-weight="700" text-anchor="middle" fill="#9a6700">13 TL</text>
+    <text x="474" y="344" font-size="15" fill="#57606a">= 113 TL</text>
+  </g>
+
+  <!-- çıktı kutusu -->
+  <rect x="40" y="398" width="720" height="140" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="60" y="424" font-size="14" font-weight="700" fill="#1f2328">Ekrana yazılacaklar (bu sırayla):</text>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="30" font-weight="700" fill="#1f2328">
+    <text x="60"  y="468">2</text>
+    <text x="300" y="468">2</text>
+    <text x="520" y="468">13</text>
+  </g>
+  <g font-size="14" fill="#1f2328">
+    <text x="60"  y="492">1. çıktı: pahalı ürün sayısı</text>
+    <text x="300" y="492">2. çıktı: 50 TL'lik banknot sayısı</text>
+    <text x="520" y="492">3. çıktı: kalan tutar</text>
+  </g>
+  <g font-size="12.5" fill="#57606a">
+    <text x="60"  y="514">35, 40</text>
+    <text x="300" y="514">113 TL içinde 2 tane 50 TL var</text>
+    <text x="520" y="514">113 − 100 = 13</text>
+  </g>
+</svg>

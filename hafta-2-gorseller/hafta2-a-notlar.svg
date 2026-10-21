@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="410" viewBox="0 0 800 410" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="800" height="410" fill="#ffffff"/>
+
+  <text x="40" y="40" font-size="20" font-weight="700" fill="#1f2328">Notlar tek tek girilir, -1 gelince sonuçlar yazılır</text>
+  <text x="40" y="64" font-size="14" fill="#57606a">50 ve üzeri not geçer, 50'nin altı kalır.</text>
+  <text x="40" y="100" font-size="13" font-weight="600" fill="#57606a">Girilen notlar (sırayla):</text>
+
+  <!-- notlar -->
+  <g font-size="28" font-weight="700" text-anchor="middle">
+    <rect x="40"  y="112" width="84" height="72" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+    <text x="82"  y="158" fill="#1f2328">85</text>
+    <rect x="138" y="112" width="84" height="72" rx="10" fill="#ffebe9" stroke="#cf222e" stroke-width="2"/>
+    <text x="180" y="158" fill="#1f2328">40</text>
+    <rect x="236" y="112" width="84" height="72" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+    <text x="278" y="158" fill="#1f2328">50</text>
+    <rect x="334" y="112" width="84" height="72" rx="10" fill="#ffebe9" stroke="#cf222e" stroke-width="2"/>
+    <text x="376" y="158" fill="#1f2328">0</text>
+    <rect x="432" y="112" width="84" height="72" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+    <text x="474" y="158" fill="#1f2328">75</text>
+    <rect x="530" y="112" width="84" height="72" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+    <text x="572" y="158" fill="#1f2328">50</text>
+    <rect x="628" y="112" width="84" height="72" rx="10" fill="#eaeef2" stroke="#57606a" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="670" y="158" fill="#57606a">-1</text>
+  </g>
+  <g font-size="14" font-weight="700" text-anchor="middle">
+    <text x="82"  y="208" fill="#1a7f37">geçti</text>
+    <text x="180" y="208" fill="#cf222e">kaldı</text>
+    <text x="278" y="208" fill="#1a7f37">geçti</text>
+    <text x="376" y="208" fill="#cf222e">kaldı</text>
+    <text x="474" y="208" fill="#1a7f37">geçti</text>
+    <text x="572" y="208" fill="#1a7f37">geçti</text>
+    <text x="670" y="208" fill="#57606a">bitiş</text>
+  </g>
+
+  <!-- ok -->
+  <path d="M670 218V256" stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#ok)"/>
+  <text x="682" y="244" font-size="13" fill="#57606a">-1 gelince</text>
+
+  <!-- çıktı kutusu -->
+  <rect x="40" y="262" width="720" height="132" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="60" y="288" font-size="14" font-weight="700" fill="#1f2328">Ekrana yazılacaklar (bu sırayla):</text>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="30" font-weight="700" fill="#1f2328">
+    <text x="60"  y="332">4</text>
+    <text x="300" y="332">2</text>
+    <text x="520" y="332">50</text>
+  </g>
+  <g font-size="14" fill="#1f2328">
+    <text x="60"  y="356">1. çıktı: geçen öğrenci sayısı</text>
+    <text x="300" y="356">2. çıktı: kalan öğrenci sayısı</text>
+    <text x="520" y="356">3. çıktı: sınıf ortalaması</text>
+  </g>
+  <g font-size="12.5" fill="#57606a">
+    <text x="60"  y="378">85, 50, 75, 50</text>
+    <text x="300" y="378">40, 0</text>
+    <text x="520" y="378">(85+40+50+0+75+50) / 6 = 300 / 6</text>
+  </g>
+</svg>
