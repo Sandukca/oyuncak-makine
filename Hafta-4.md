@@ -1,24 +1,24 @@
 # Oyuncak Makine Ödevi: Hafta 4
 
-Programını [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yaz ve çalıştır. Programını sadece verilen örneklerle değil, kendi seçtiğin girdilerle de dene.
+Programınızı [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yazınız ve çalıştırınız. Programınızı sadece verilen örneklerle değil, kendi seçtiğiniz girdilerle de deneyiniz.
 
 **Hatırlatma**
 
 - Komut satırları en az bir boşlukla başlar. Sadece etiketler (`basla`, `bitir` gibi) satırın en başından yazılır.
-- Programını `stop` komutuyla bitirmeyi unutma.
-- Bellek hücrelerini programın sonunda tanımla, örneğin `toplam  0`.
+- Programınızı `stop` komutuyla bitirmeyi unutmayınız.
+- Bellek hücrelerini programın sonunda tanımlayınız, örneğin `toplam  0`.
 
 ---
 
 ## Soru: Adım adım sayma
 
-**Görev:** Kullanıcıdan sırasıyla üç sayı oku:
+**Görev:** Kullanıcıdan sırasıyla üç sayı okuyunuz:
 
 1. Başlangıç değeri
 2. Bitiş değeri
 3. Adım değeri (pozitif ya da negatif olabilir)
 
-Başlangıç değerinden başlayarak her seferinde adım değerini ekle ve elde ettiğin her değeri ekrana yaz. Bitiş değerini geçince dur.
+Başlangıç değerinden başlayarak her seferinde adım değerini ekleyiniz ve elde ettiğiniz her değeri ekrana yazınız. Bitiş değeri geçildiğinde program dursun.
 
 **Örnek**
 
@@ -38,4 +38,4 @@ Başlangıç değerinden başlayarak her seferinde adım değerini ekle ve elde 
 
 **İpucu**
 
-Adım pozitifken "bitişi geçtim mi?" sorusu ile adım negatifken sorulan soru aynı değildir. Önce adımın işaretine bak.
+Adım pozitifken "bitiş geçildi mi?" sorusu ile adım negatifken sorulan soru aynı değildir. Önce adımın işaretine bakınız.

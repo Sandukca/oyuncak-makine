@@ -2,13 +2,13 @@
 
 **Süre:** 60 dakika · **Puan:** 100
 
-Programını [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yaz ve çalıştır. Programını sadece verilen örneklerle değil, kendi seçtiğin girdilerle de dene.
+Programınızı [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yazınız ve çalıştırınız. Programınızı sadece verilen örneklerle değil, kendi seçtiğiniz girdilerle de deneyiniz.
 
 **Hatırlatma**
 
 - Komut satırları en az bir boşlukla başlar. Sadece etiketler (`basla`, `bitir` gibi) satırın en başından yazılır.
-- Programını `stop` komutuyla bitirmeyi unutma.
-- Bellek hücrelerini programın sonunda tanımla, örneğin `toplam  0`.
+- Programınızı `stop` komutuyla bitirmeyi unutmayınız.
+- Bellek hücrelerini programın sonunda tanımlayınız, örneğin `toplam  0`.
 
 ---
 
@@ -20,7 +20,7 @@ Programını [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yaz ve 
 
 ![Notlar tek tek girilir, -1 gelince sonuçlar yazılır](hafta-2-gorseller/hafta2-a-notlar.png)
 
-**Görev:** `-1` girilene kadar notları oku. Giriş bitince sırasıyla şunları ekrana yaz:
+**Görev:** `-1` girilene kadar notları okuyunuz. Giriş bitince sırasıyla şunları ekrana yazınız:
 
 1. Geçen öğrenci sayısı
 2. Kalan öğrenci sayısı

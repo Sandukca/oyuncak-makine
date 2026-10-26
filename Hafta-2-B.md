@@ -2,13 +2,13 @@
 
 **Süre:** 60 dakika · **Puan:** 100
 
-Programını [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yaz ve çalıştır. Programını sadece verilen örneklerle değil, kendi seçtiğin girdilerle de dene.
+Programınızı [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yazınız ve çalıştırınız. Programınızı sadece verilen örneklerle değil, kendi seçtiğiniz girdilerle de deneyiniz.
 
 **Hatırlatma**
 
 - Komut satırları en az bir boşlukla başlar. Sadece etiketler (`basla`, `bitir` gibi) satırın en başından yazılır.
-- Programını `stop` komutuyla bitirmeyi unutma.
-- Bellek hücrelerini programın sonunda tanımla, örneğin `toplam  0`.
+- Programınızı `stop` komutuyla bitirmeyi unutmayınız.
+- Bellek hücrelerini programın sonunda tanımlayınız, örneğin `toplam  0`.
 
 ---
 
@@ -22,7 +22,7 @@ Müşteri ödemeyi önce olabildiğince çok **50 TL'lik banknotla**, geri kalan
 
 ![Fiyatlar tek tek girilir, 0 gelince sonuçlar yazılır](hafta-2-gorseller/hafta2-b-kasa.png)
 
-**Görev:** `0` girilene kadar fiyatları oku. Giriş bitince sırasıyla şunları ekrana yaz:
+**Görev:** `0` girilene kadar fiyatları okuyunuz. Giriş bitince sırasıyla şunları ekrana yazınız:
 
 1. Pahalı ürün sayısı
 2. Toplam tutar için gereken 50 TL'lik banknot sayısı
