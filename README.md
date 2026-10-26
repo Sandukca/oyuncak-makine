@@ -35,3 +35,5 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 ### Hafta 4: Ödev
 
 [Hafta-4.md](Hafta-4.md): Adım adım sayma. Başlangıç, bitiş ve adım (+ veya -) değerlerini alıp başlangıçtan bitişe kadar her adımdaki değeri ekrana yazan program.
+
+Dosyanın sonunda kendi kendinize çözebileceğiniz 9 çalışma sorusu da var.

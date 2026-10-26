@@ -39,3 +39,34 @@ Başlangıç değerinden başlayarak her seferinde adım değerini ekleyiniz ve 
 **İpucu**
 
 Adım pozitifken "bitiş geçildi mi?" sorusu ile adım negatifken sorulan soru aynı değildir. Önce adımın işaretine bakınız.
+
+---
+
+## Kendiniz çözünüz
+
+1. **Basketbol maçı:** Bir oyuncunun attığı 3'lük, 2'lik ve 1'lik (serbest atış) sayısını okuyup toplam kaç sayı attığını yazınız.
+   `4, 5, 3` → `25`
+
+2. **Çarpım tablosu:** Girilen sayının 1'den 10'a kadar katlarını sırayla ekrana yazınız.
+   `7` → `7, 14, 21, 28, 35, 42, 49, 56, 63, 70`
+
+3. **Telefon şarjı:** Şarjı her saat 15 puan azalan bir telefonun, girilen şarj yüzdesiyle kaç tam saat dayanacağını döngüyle bulunuz.
+   `100` → `6`
+
+4. **Zar atışı:** 0 girilene kadar atılan zar sonuçlarını okuyup kaç tanesinin çift geldiğini yazınız.
+   `3, 6, 2, 5, 4, 0` → `3`
+
+5. **Donan günler:** Önce gün sayısını, sonra o günlerin sıcaklıklarını okuyup sıcaklığın kaç gün sıfırın altında olduğunu yazınız.
+   `5, -3, 4, -1, 0, 7` → `2`
+
+6. **Yarışma birincisi:** 0 girilene kadar yarışmacıların puanlarını okuyup en yüksek puanı yazınız.
+   `45, 78, 62, 0` → `78`
+
+7. **Bakteri kolonisi:** Her saat ikiye katlanan bir bakteri kolonisinin, girilen başlangıç sayısından kaç saat sonra 1000'i geçeceğini yazınız.
+   `1` → `10`  ·  `100` → `4`
+
+8. **Video süresi:** Saniye cinsinden girilen bir video süresini saat, dakika ve saniye olarak yazınız.
+   `3725` → `1`, `2`, `5`
+
+9. **Rakamlar toplamı:** Girilen bir sayının rakamlarının toplamını yazınız.
+   `2026` → `10`
