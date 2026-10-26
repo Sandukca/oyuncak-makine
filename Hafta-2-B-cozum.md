@@ -1,14 +1,14 @@
-# Hafta 2, B Grubu: Market Kasası (Hoca Notu)
+# Hafta 2, B Grubu: Market Kasası (Çözüm)
 
-Bu dosya yalnızca hocalar içindir. Soru metni `Hafta-2-B.md` dosyasındadır. A grubunun sorusu (Sınıf notları) bu soruyla aynı becerileri ölçer, ama A grubunun çözümü B grubuna uymaz. Karşılaştırma için en alttaki tabloya bakınız.
+Soru metni `Hafta-2-B.md` dosyasındadır. A grubunun sorusu (Sınıf notları) bu soruyla aynı becerileri ölçer, ama B grubunun çözümü A grubuna uymaz. Karşılaştırma için en alttaki tabloya bakınız.
 
-## Neyi ölçüyoruz
+## Bu soru neyi ölçer
 
-- **Bitiş işaretine kadar okuma.** Bu soruda fiyatlar en az 1 TL, bitiş işareti `0`'dır ve `ifzero` ile yakalanır. Dersteki `-1` kalıbını ezberden kullanan öğrenci burada takılır.
+- **Bitiş işaretine kadar okuma.** Bu soruda fiyatlar en az 1 TL, bitiş işareti `0`'dır ve `ifzero` ile yakalanır. Dersteki `-1` kalıbını ezberden kullanmak burada hataya yol açar.
 - **Karşılaştırmayı çıkarmayla kurmak.** "20'den fazla" kesin bir karşılaştırma. `fiyat − 20` sıfır ya da negatifse ürün pahalı değildir. Bu yüzden `ifneg` tek başına yetmez, `ifzero` da gerekir (ya da tam sayı olduğu için `sub 21` + `ifneg`).
 - **Akümülatör ile bellek farkı.** `sub 20` akümülatördeki fiyatı bozar. Fiyat önce `store fiyat` ile saklanmalıdır.
 - **Sayaç ve toplam.** Pahalı ürün sayısı ve toplam tutar ayrı hücrelerde tutulur.
-- **Döngüden sonra hesap.** Banknot sayısı ve kalan, döngü bittikten sonra toplamdan hesaplanır. `div` ondalıklı böldüğü için öğrenci tam kısmı kendisi bulmalıdır.
+- **Döngüden sonra hesap.** Banknot sayısı ve kalan, döngü bittikten sonra toplamdan hesaplanır. `div` ondalıklı böldüğü için tam kısım ayrıca bulunmalıdır.
 
 ## Önce cümlelerle yazalım
 
@@ -91,7 +91,7 @@ kalan   0
 
 25 komut, 4 bellek hücresi.
 
-### Kabul edilecek farklı çözümler
+### Doğru kabul edilen farklı çözümler
 
 - Karşılaştırma `sub 21` + `ifneg basla` ile yapılabilir (fiyatlar tam sayı).
 - Banknot sayısı `mod` ve `div` yerine bir döngüyle bulunabilir: toplamdan 50 çıkarılır, sonuç negatif olmadıkça banknot sayacı artırılır, kalan da en son geçerli değerdir. Bu çözüm daha uzundur, ama tam puan almalıdır.
@@ -170,7 +170,7 @@ flowchart TD
 | Banknot sayısı (tam sayı) ve kalan döngüden sonra doğru hesaplanıyor | 20 |
 | Çıktılar doğru sırada, program `stop` ile bitiyor | 5 |
 
-Banknot sayısını `2.26` gibi ondalıklı yazan ama kalanı doğru bulan öğrenciye bu ölçütten 10 puan verilebilir.
+Banknot sayısı `2.26` gibi ondalıklı yazılıp kalan doğru bulunursa bu ölçütten 10 puan alınır.
 
 ## A ve B grubunun karşılaştırması
 

@@ -1,8 +1,8 @@
-# Hafta 2, A Grubu: Sınıf Notları (Hoca Notu)
+# Hafta 2, A Grubu: Sınıf Notları (Çözüm)
 
-Bu dosya yalnızca hocalar içindir. Soru metni `Hafta-2-A.md` dosyasındadır. B grubunun sorusu (Market kasası) bu soruyla aynı becerileri ölçer, ama A grubunun çözümü B grubuna uymaz. Karşılaştırma için en alttaki tabloya bakınız.
+Soru metni `Hafta-2-A.md` dosyasındadır. B grubunun sorusu (Market kasası) bu soruyla aynı becerileri ölçer, ama A grubunun çözümü B grubuna uymaz. Karşılaştırma için en alttaki tabloya bakınız.
 
-## Neyi ölçüyoruz
+## Bu soru neyi ölçer
 
 - **Bitiş işaretine kadar okuma.** 0 geçerli bir not olduğu için bitiş işareti `-1`'dir ve `ifneg` ile yakalanır.
 - **Karşılaştırmayı çıkarmayla kurmak.** Makinede "büyük mü" komutu yok. `not − 50` farkının işaretine bakılır. 50 sınırda olduğu için `ifneg` (< 0) ile `ifpos` (>= 0) arasındaki farkı bilmek gerekir.
@@ -96,11 +96,11 @@ kalan   0
 
 27 komut, 5 bellek hücresi.
 
-### Kabul edilecek farklı çözümler
+### Doğru kabul edilen farklı çözümler
 
 - `adet` hücresi yerine ortalama `toplam / (gecen + kalan)` ile hesaplanabilir.
 - Karşılaştırma `sub 50` + `ifpos gecti` ile, dallar ters sırada da kurulabilir.
-- Soruda en az bir not girileceği söylendiği için sıfıra bölme kontrolü (`load adet`, `ifzero son`) zorunlu değildir. Ekleyen öğrenciye artı puan verilebilir.
+- Soruda en az bir not girileceği söylendiği için sıfıra bölme kontrolü (`load adet`, `ifzero son`) zorunlu değildir. Eklemek artı puan getirir.
 
 ## Çözüm nasıl çalışır
 
