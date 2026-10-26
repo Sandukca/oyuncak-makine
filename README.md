@@ -27,3 +27,11 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 | B | Market kasası | [Hafta-2-B.md](Hafta-2-B.md) | [Hafta-2-B-cozum.md](Hafta-2-B-cozum.md) |
 
 Çözüm dosyalarında adım adım düşünüş, program, akış şeması, test girdileri, sık yapılan hatalar ve puanlama yer alır.
+
+### Hafta 3: Tatil
+
+28 Ekim öğleden sonra tatil olduğu için laboratuvar yapılmayacak.
+
+### Hafta 4: Ödev
+
+[Hafta-4.md](Hafta-4.md): Adım adım sayma. Başlangıç, bitiş ve adım (+ veya -) değerlerini alıp başlangıçtan bitişe kadar her adımdaki değeri ekrana yazan program.
