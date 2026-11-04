@@ -27,18 +27,27 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 | A | Sınıf notları | [Hafta-2-A.md](Hafta-2-A.md) | [Hafta-2-A-cozum.md](Hafta-2-A-cozum.md) |
 | B | Market kasası | [Hafta-2-B.md](Hafta-2-B.md) | [Hafta-2-B-cozum.md](Hafta-2-B-cozum.md) |
 
-Çözüm dosyalarında adım adım düşünüş, program, akış şeması, test girdileri, sık yapılan hatalar ve puanlama yer alır.
+Çözüm dosyalarında adım adım düşünüş, program, akış şeması, test girdileri, sık yapılan hatalar ve puanlama yer almaktadır.
 
 ### Hafta 3: Tatil
 
-28 Ekim öğleden sonra tatil olduğu için laboratuvar yapılmayacak.
+29 Ekim Cumhuriyet Bayramı resmi tatili nedeniyle laboratuvar yapılmadı.
 
-### Hafta 4: Ödev ve uygulama sorusu
+### Hafta 4: Ödev ve uygulama sınavı
 
-[Hafta-4.md](Hafta-4.md): Adım adım sayma. Başlangıç, bitiş ve adım (+ veya -) değerlerini alıp başlangıçtan bitişe kadar her adımdaki değeri ekrana yazan program.
+**Ödev**
 
-Dosyanın sonunda kendi kendinize çözebileceğiniz 9 çalışma sorusu da var.
+| Dosya | Soru | Açıklama |
+| --- | --- | --- |
+| [Hafta-4.md](Hafta-4.md) | Adım adım sayma | Başlangıç, bitiş ve adım (+ ya da −) değerlerini alıp başlangıçtan bitişe kadar her adımdaki değeri ekrana yazan program. Dosyanın sonunda kendi kendinize çözebileceğiniz 9 çalışma sorusu da vardır. |
 
-**Uygulama sorusu (A oturumu):** [Hafta-4-A.md](Hafta-4-A.md): Doğrunun değer tablosu. `y = a·x + b` doğrusunda x'i başlangıçtan bitişe adım adım değiştirip her x için x ve y değerlerini ekrana yazan program.
+**Uygulama sınavı**
 
-**Uygulama sorusu (B oturumu):** [Hafta-4-B.md](Hafta-4-B.md): Parabolün değer tablosu. `y = a·x² + b·x + c` parabolünde x'i başlangıçtan bitişe adım adım değiştirip her x için x ve y değerlerini ekrana yazan program.
+| Grup | Soru | Soru metni | Çözüm |
+| --- | --- | --- | --- |
+| A | Doğrunun değer tablosu, `y = a·x + b` | [Hafta-4-A.md](Hafta-4-A.md) | [Hafta-4-A-cozum.md](Hafta-4-A-cozum.md) |
+| B | Parabolün değer tablosu, `y = a·x² + b·x + c` | [Hafta-4-B.md](Hafta-4-B.md) | [Hafta-4-B-cozum.md](Hafta-4-B-cozum.md) |
+
+İki soruda da ödevdeki döngü kullanılmaktadır: x başlangıçtan bitişe adım adım değişmekte ve her x için önce x, sonra y ekrana yazılmaktadır. Girdiler `get` ile okunmamakta, programın sonundaki bellek hücrelerinde durmaktadır. Soru sayfalarında kopyalanabilir bir kod taslağı ve kendi kendinize deneyebileceğiniz test tabloları vardır.
+
+Çözüm dosyalarında önce adım yalnızca pozitif olduğunda çözüm, sonra adım pozitif ya da negatif olduğunda çalışan genel çözüm yer almaktadır. Ayrıca adım adım düşünüş, şekildeki iki örneğin tur tur tablosu, akış şeması, test değerleri ve sık yapılan hatalar vardır.
