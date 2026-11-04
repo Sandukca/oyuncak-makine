@@ -4,7 +4,7 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 
 - **Simülatör:** [toy.emrecan.dev](https://toy.emrecan.dev/)
 - **Anlatım videosu:** [Oyuncak Makine anlatımı (YouTube)](https://youtu.be/2NV99zxvsv0)
-- **45 dk'lık uygulama sorusu:** [Hafta 4 sorusu, A oturumu](Hafta-4.md#soru-adım-adım-sayma)
+- **45 dk'lık uygulama sorusu:** [A oturumu](Hafta-2-A.md)
 
 ## Fihrist
 
@@ -33,8 +33,10 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 
 28 Ekim öğleden sonra tatil olduğu için laboratuvar yapılmayacak.
 
-### Hafta 4: Ödev
+### Hafta 4: Ödev ve uygulama sorusu
 
 [Hafta-4.md](Hafta-4.md): Adım adım sayma. Başlangıç, bitiş ve adım (+ veya -) değerlerini alıp başlangıçtan bitişe kadar her adımdaki değeri ekrana yazan program.
 
 Dosyanın sonunda kendi kendinize çözebileceğiniz 9 çalışma sorusu da var.
+
+**Uygulama sorusu (A oturumu):** [Hafta-4-A.md](Hafta-4-A.md): Doğrunun değer tablosu. `y = a·x + b` doğrusunda x'i başlangıçtan bitişe adım adım değiştirip her x için x ve y değerlerini ekrana yazan program.
