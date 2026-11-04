@@ -4,6 +4,7 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 
 - **Simülatör:** [toy.emrecan.dev](https://toy.emrecan.dev/)
 - **Anlatım videosu:** [Oyuncak Makine anlatımı (YouTube)](https://youtu.be/2NV99zxvsv0)
+- **45 dk'lık uygulama sorusu:** [A oturumu](Hafta-2-A.md)
 
 ## Fihrist
 
