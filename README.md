@@ -40,3 +40,5 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 Dosyanın sonunda kendi kendinize çözebileceğiniz 9 çalışma sorusu da var.
 
 **Uygulama sorusu (A oturumu):** [Hafta-4-A.md](Hafta-4-A.md): Doğrunun değer tablosu. `y = a·x + b` doğrusunda x'i başlangıçtan bitişe adım adım değiştirip her x için x ve y değerlerini ekrana yazan program.
+
+**Uygulama sorusu (B oturumu):** [Hafta-4-B.md](Hafta-4-B.md): Parabolün değer tablosu. `y = a·x² + b·x + c` parabolünde x'i başlangıçtan bitişe adım adım değiştirip her x için x ve y değerlerini ekrana yazan program.
