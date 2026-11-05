@@ -118,19 +118,15 @@ dongu   load bitis       # (bitis - x) * adim hesapla
         store x
         goto dongu
 son     stop
-# Hafta 4 A: Doğrunun değer tablosu, y = a*x + b
-# Girdiler: denemek için yalnızca bu beş değeri değiştiriniz.
-# (Örnek 1: y = 2x - 3, x: -1'den 4'e, adım 1)
 a         2
 b         -3
 baslangic -1
 bitis     4
 adim      1
-# Çalışma hücresi: program çalışırken değişir.
 x         0
 ```
 
-16 komut. 5 girdi hücresi ve 1 çalışma hücresi.
+16 komut. 5 girdi hücresi ve 1 çalışma hücresi. Hücrelerde Örnek 1'in değerleri yazılıdır. Başka değerlerle denemek için yalnızca girdi hücrelerini değiştiriniz. `x` ise program çalışırken değişen çalışma hücresidir.
 
 ### Doğru kabul edilen farklı çözümler
 

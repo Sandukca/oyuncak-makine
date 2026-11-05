@@ -9,7 +9,7 @@ Programınızı [Oyuncak Makine](https://toy.emrecan.dev/) simülatöründe yaz�
 - Komut satırları en az bir boşlukla başlar. Sadece etiketler (`basla`, `bitir` gibi) satırın en başından yazılır. Satır başında sekme (Tab) değil, boşluk kullanınız.
 - Programınızı `stop` komutuyla bitirmeyi unutmayınız.
 - Bellek hücrelerini programın sonunda tanımlayınız, örneğin `toplam  0`.
-- Açıklama yazmak isterseniz komutun sonuna, aynı satıra yazınız (`load x   # x'i getir`). `#` ile başlayan ayrı bir satır kodun arasında kalırsa simülatör o satırda takılır. Ayrı açıklama satırları yalnızca `stop`'tan sonra kullanılabilir.
+- Açıklama yazmak isterseniz komutun sonuna, aynı satıra yazınız (`load x   # x'i getir`). `#` ile başlayan ayrı satır yazmayınız, simülatör o satırda takılır.
 
 ---
 

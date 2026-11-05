@@ -128,20 +128,16 @@ dongu   load bitis       # (bitis - x) * adim hesapla
         store x
         goto dongu
 son     stop
-# Hafta 4 B: Parabolün değer tablosu, y = a*x*x + b*x + c
-# Girdiler: denemek için yalnızca bu altı değeri değiştiriniz.
-# (Örnek 1: y = x*x - 2x - 3, x: -2'den 4'e, adım 1)
 a         1
 b         -2
 c         -3
 baslangic -2
 bitis     4
 adim      1
-# Çalışma hücresi: program çalışırken değişir.
 x         0
 ```
 
-19 komut. 6 girdi hücresi ve 1 çalışma hücresi.
+19 komut. 6 girdi hücresi ve 1 çalışma hücresi. Hücrelerde Örnek 1'in değerleri yazılıdır. Başka değerlerle denemek için yalnızca girdi hücrelerini değiştiriniz. `x` ise program çalışırken değişen çalışma hücresidir.
 
 ### Doğru kabul edilen farklı çözümler
 
