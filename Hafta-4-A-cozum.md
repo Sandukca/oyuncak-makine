@@ -2,62 +2,51 @@
 
 Soru metni `Hafta-4-A.md` dosyasındadır. B grubunun sorusu (Parabolün değer tablosu) bu soruyla aynı becerileri ölçer, ama A grubunun çözümü B grubuna uymaz. Karşılaştırma için en alttaki tabloya bakınız.
 
-## Bu soru neyi ölçer
-
-- **Ödevdeki döngü.** Başlangıç, bitiş ve adım (+ ya da −) ile sayma. Ödevi gerçekten yapan öğrenci döngüyü hazır bulur.
-- **Girdi hücresi ile çalışma hücresi ayrımı.** Girdiler `get` ile okunmaz, programın sonundaki hücrelerde durur. O anki x için ayrı bir hücre gerekir: `load baslangic`, `store x`. Girdi hücreleri program boyunca değişmez.
-- **Anlamlı adlar.** Girdi hücrelerinin adları soruda verilir. O anki x'i tutan çalışma hücresinin adını (`x`, `simdikix` gibi) öğrenci seçer.
-- **İki yönlü bitiş testi.** Adım pozitifken ve negatifken "bitiş geçildi mi?" sorusu farklıdır. İki dallı çözüm de, tek çarpmalı çözüm de kabul edilir (aşağıda).
-- **Döngü içinde hesap.** Her turda `y = a·x + b` hesaplanır. `print` akümülatörü değiştirmediği için x yazıldıktan sonra doğrudan `mul a` ile devam edilebilir.
-
-## Neden girdiler bellekte?
-
-- **Tekrarlı deneme kolaylaşır.** Öğrenci her çalıştırmada 5 sayı yazmaz, hücredeki değeri değiştirip yeniden çalıştırır. Simülatörün **Çalıştır** düğmesi her seferinde belleği kaynaktan yeniden yükler (`assemble(); run()`). Bu yüzden önceki çalıştırmada değişen `x` her çalıştırmada yeniden 0'dan başlar.
-- **Girdi sırası hatası olmaz.** Hangi sayının hangi hücreye gittiği kodda açıkça görünür.
-- **Kod kısalır.** 10 satırlık `get` / `store` bloğu kalkar, öğrenci döngüye odaklanır.
-
-## Simülatörün kaynağından çıkan notlar
-
-`toy.emrecan.dev` sayfasındaki `toy.js` incelendi ve programlar bu motorla çalıştırılarak denendi:
-
-- **`#` ile başlayan satır kodun arasında olursa program kilitlenir.** Motor bu satırda program sayacını ilerletmez, simülatör 10 000 komuttan sonra "infinite loop?" uyarısı verir. Açıklamalar satır sonuna yazılmalıdır. Ayrı açıklama satırları yalnızca `stop`'tan sonra (veri bölümünde) güvenlidir.
-- **Satır sonu açıklaması sorunsuzdur.** Motor adresten sonraki her şeyi atar.
-- **Satır başında sekme (Tab) çalışmaz.** "invalid opcode" hatası verir. Boşluk kullanılmalıdır.
-- **Negatif başlangıç değeri** (`b  -3`) ve **Türkçe harfli adlar** (`başlangıç`) sorunsuzdur.
-- **Yanlış yazılan hücre adı** "there is no statement labeled …" uyarısı verir. Değer `NaN` olur. Sonuç hangi hücrenin yanlış yazıldığına göre değişir (tablo aşağıda, "Sık yapılan hatalar").
-- **Simülatör en çok 8 hücreyi gösterir.** Yalnızca program içinde `store` edilen hücreler görünür, girdi hücreleri görünmez.
-
 ## Önce cümlelerle yazalım
+
+Programı yazmadan önce ne yapacağımızı Türkçe cümlelerle yazıyoruz: programın her satırı için bir cümle. Cümleler aşağıdaki akış şemasını kutu kutu izler.
 
 **Hangi bilgileri hatırlamamız gerekiyor?**
 
 - Girdi hücreleri (değişmez): `a`, `b`, `baslangic`, `bitis`, `adim`
 - Çalışma hücresi: `x` (o anki x değeri)
 
-**Adımlar**
+**Akış şeması**
 
-1. `x`'e `baslangic`'ı kopyala.
-2. Bitiş geçildiyse 7. adıma git.
-3. `x`'i yaz.
-4. `a·x + b`'yi hesapla ve yaz.
-5. `x`'e `adim`'ı ekle.
-6. 2. adıma dön.
-7. Dur.
+```mermaid
+flowchart TD
+    G["x = baslangic"] --> T{"(bitis − x) · adim negatif mi?"}
+    T -- "evet" --> D["Dur"]
+    T -- "hayır" --> X["x yaz"]
+    X --> Y["y = a·x + b hesapla, yaz"]
+    Y --> I["x = x + adim"]
+    I -- "başa dön" --> T
+```
 
-**Cümleden komuta**
+**Satır satır cümleler**
 
-| Adım | Cümle | Komutlar |
-| --- | --- | --- |
-| 1 | x'e başlangıcı kopyala. | `load baslangic`, `store x` |
-| 2 | Bitiş geçildiyse bitir. | `load bitis`, `sub x`, `mul adim`, `ifneg son` |
-| 3 | x'i yaz. | `load x`, `print` |
-| 4 | y'yi hesapla ve yaz. | `mul a`, `add b`, `print` |
-| 5–6 | x'i ilerlet, başa dön. | `load x`, `add adim`, `store x`, `goto dongu` |
-| 7 | Dur. | `stop` |
+| Satır | Şemadaki kutu | Cümle | Komut |
+| --- | --- | --- | --- |
+| 1 | x = baslangic | Başlangıç değerini akümülatöre getir. | `basla  load baslangic` |
+| 2 | | Bu değeri x hücresine kopyala. x başlangıçtan başlasın. | `store x` |
+| 3 | (bitis − x) · adim negatif mi? | Döngünün başı: bitiş değerini getir. | `dongu  load bitis` |
+| 4 | | Bitişten x'i çıkar. Akümülatörde bitişe kalan yol var. | `sub x` |
+| 5 | | Kalan yolu adımla çarp. (Bu satır yalnızca genel çözümde vardır. Adım pozitif çözümünde yoktur.) | `mul adim` |
+| 6 | | Sonuç negatifse bitiş geçilmiştir, son satıra git. | `ifneg son` |
+| 7 | x yaz | x'i akümülatöre getir. | `load x` |
+| 8 | | x'i ekrana yaz. | `print` |
+| 9 | y = a·x + b hesapla, yaz | Akümülatörde hâlâ x var, onu a ile çarp. | `mul a` |
+| 10 | | Üzerine b'yi ekle. Akümülatörde artık y var. | `add b` |
+| 11 | | y'yi ekrana yaz. | `print` |
+| 12 | x = x + adim | x'i yeniden akümülatöre getir. | `load x` |
+| 13 | | Üzerine adımı ekle. | `add adim` |
+| 14 | | Yeni değeri x hücresine sakla. | `store x` |
+| 15 | başa dön | Döngünün başına, 3. satıra dön. | `goto dongu` |
+| 16 | Dur | Programı durdur. | `son  stop` |
 
-**2. adımdaki tek çarpma neden işe yarar?** Girdi garantisi sayesinde bitiş geçilmediği sürece `bitis − x` ile `adim` aynı işaretlidir ve çarpımları 0 ya da pozitiftir. Bitiş geçildiği anda işaretler ters olur, çarpım negatife düşer. Bitişe tam denk gelinirse çarpım 0 olur ve o x de yazılır.
+**5. satırdaki tek çarpma neden işe yarar?** Girdi garantisi sayesinde bitiş geçilmediği sürece `bitis − x` ile `adim` aynı işaretlidir ve çarpımları 0 ya da pozitiftir. Bitiş geçildiği anda işaretler ters olur, çarpım negatife düşer. Bitişe tam denk gelinirse çarpım 0 olur ve o x de yazılır.
 
-4. adımda akümülatörde zaten x vardır (`print` akümülatörü değiştirmez). Bu yüzden y, `load` yapmadan doğrudan `mul a`, `add b` ile hesaplanır ve y için ayrı bir hücre gerekmez.
+**9. satırda neden `load` yok?** `print` akümülatörü değiştirmez. 8. satırda x yazıldıktan sonra akümülatörde hâlâ x vardır. Bu yüzden y doğrudan `mul a`, `add b` ile hesaplanır ve y için ayrı bir hücre gerekmez.
 
 ## Adım pozitif olduğunda çözüm
 
@@ -108,7 +97,7 @@ Bu çözüm negatif adımla çalışmaz. Örnek 2'de (adım −2) `bitis − x` 
 | Pozitif | büyür | 0 ya da pozitif | negatif | doğru durur | doğru durur |
 | Negatif | küçülür | 0 ya da negatif | pozitif | ilk turda yanlış durur | doğru durur |
 
-Negatif adımda `bitis − x`'in işareti ters döndüğü için pozitif adım testi yetmez. Genel çözüm bu farkı tek satırla, `sub x`'ten sonra `mul adim` ile giderir. Kalan yolu adımla çarpınca, bitiş geçilmediği sürece iki işaret aynı olur ve çarpım 0 ya da pozitif çıkar. Bitiş geçildiği anda işaretler ters olur ve çarpım negatife düşer. Böylece tek `ifneg` iki yönde de doğru yerde durur. Bu ayrıntı yukarıda, "2. adımdaki tek çarpma neden işe yarar?" paragrafında da anlatıldı.
+Negatif adımda `bitis − x`'in işareti ters döndüğü için pozitif adım testi yetmez. Genel çözüm bu farkı tek satırla, `sub x`'ten sonra `mul adim` ile giderir. Kalan yolu adımla çarpınca, bitiş geçilmediği sürece iki işaret aynı olur ve çarpım 0 ya da pozitif çıkar. Bitiş geçildiği anda işaretler ters olur ve çarpım negatife düşer. Böylece tek `ifneg` iki yönde de doğru yerde durur. Bu ayrıntı yukarıda, "5. satırdaki tek çarpma neden işe yarar?" paragrafında da anlatıldı.
 
 Bunun için girdi garantisi gerekir: adım 0 olmaz, adım pozitifse başlangıç bitişten büyük olmaz, adım negatifse başlangıç bitişten küçük olmaz.
 
@@ -212,18 +201,6 @@ Bu örnek iki tuzağı birlikte yoklar:
 
 - **Negatif adım:** x büyükten küçüğe gider. Yalnızca pozitif adım için yazılmış bir bitiş testi burada hiç nokta yazdırmaz.
 - **Bitiş atlanır:** x, −3'e hiç denk gelmez, −2'den sonra −4'e geçer. −4 yazılmamalıdır.
-
-## Akış şeması
-
-```mermaid
-flowchart TD
-    G["x = baslangic"] --> T{"(bitis − x) · adim negatif mi?"}
-    T -- "evet" --> D["Dur"]
-    T -- "hayır" --> X["x yaz"]
-    X --> Y["y = a·x + b hesapla, yaz"]
-    Y --> I["x = x + adim"]
-    I -- "başa dön" --> T
-```
 
 ## Test değerleri (gerçek simülatör motoruyla denendi)
 
