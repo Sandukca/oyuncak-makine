@@ -38,7 +38,7 @@ Programlamaya Giriş I dersinin Oyuncak Makine laboratuvar materyalleri.
 
 | Dosya | Soru | Açıklama |
 | --- | --- | --- |
-| [Hafta-4.md](Hafta-4.md) | Adım adım sayma | Başlangıç, bitiş ve adım (+ ya da −) değerlerini alıp başlangıçtan bitişe kadar her adımdaki değeri ekrana yazan program. Dosyanın sonunda kendi kendinize çözebileceğiniz 9 çalışma sorusu da vardır. |
+| [Hafta-4-Odev.md](Hafta-4-Odev.md) | Adım adım sayma | Başlangıç, bitiş ve adım (+ ya da −) değerlerini alıp başlangıçtan bitişe kadar her adımdaki değeri ekrana yazan program. Dosyanın sonunda kendi kendinize çözebileceğiniz 9 çalışma sorusu da vardır. |
 
 **Uygulama sınavı**
 
