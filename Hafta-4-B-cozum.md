@@ -2,47 +2,54 @@
 
 Soru metni `Hafta-4-B.md` dosyasındadır. A grubunun sorusu (Doğrunun değer tablosu) bu soruyla aynı becerileri ölçer, ama B grubunun çözümü A grubuna uymaz. Karşılaştırma için en alttaki tabloya bakınız.
 
-Girdilerin neden bellekte durduğu ve simülatörün kaynağından çıkan notlar (`#` satırları, sekme, hücre adları) için A grubu çözümüne bakınız (`Hafta-4-A-cozum.md`). Aynı notlar bu grup için de geçerlidir.
-
-## Bu soru neyi ölçer
-
-- **Ödevdeki döngü.** Başlangıç, bitiş ve adım (+ ya da −) ile sayma. Ödevi gerçekten yapan öğrenci döngüyü hazır bulur.
-- **Girdi hücresi ile çalışma hücresi ayrımı.** Girdiler `get` ile okunmaz, programın sonundaki hücrelerde durur. O anki x için ayrı bir hücre gerekir: `load baslangic`, `store x`. Girdi hücreleri program boyunca değişmez.
-- **Anlamlı adlar.** Girdi hücrelerinin adları soruda verilir. O anki x'i tutan çalışma hücresinin adını (`x`, `simdikix` gibi) öğrenci seçer.
-- **İki yönlü bitiş testi.** Adım pozitifken ve negatifken "bitiş geçildi mi?" sorusu farklıdır. İki dallı çözüm de, tek çarpmalı çözüm de kabul edilir (aşağıda).
-- **Formülü komutlara çevirmek.** Makinede üs alma yoktur. `a·x² + b·x + c` ya doğrudan (`x·x·a`, `b·x` ayrı hesaplanıp toplanır) ya da kısa yoldan `(a·x + b)·x + c` olarak (Horner yöntemi) hesaplanır.
-
 ## Önce cümlelerle yazalım
+
+Programı yazmadan önce ne yapacağımızı Türkçe cümlelerle yazıyoruz: programın her satırı için bir cümle. Cümleler aşağıdaki akış şemasını kutu kutu izler.
 
 **Hangi bilgileri hatırlamamız gerekiyor?**
 
 - Girdi hücreleri (değişmez): `a`, `b`, `c`, `baslangic`, `bitis`, `adim`
 - Çalışma hücresi: `x` (o anki x değeri)
 
-**Adımlar**
+**Akış şeması**
 
-1. `x`'e `baslangic`'ı kopyala.
-2. Bitiş geçildiyse 7. adıma git.
-3. `x`'i yaz.
-4. `(a·x + b)·x + c`'yi hesapla ve yaz.
-5. `x`'e `adim`'ı ekle.
-6. 2. adıma dön.
-7. Dur.
+```mermaid
+flowchart TD
+    G["x = baslangic"] --> T{"(bitis − x) · adim negatif mi?"}
+    T -- "evet" --> D["Dur"]
+    T -- "hayır" --> X["x yaz"]
+    X --> Y["y = (a·x + b)·x + c hesapla, yaz"]
+    Y --> I["x = x + adim"]
+    I -- "başa dön" --> T
+```
 
-**Cümleden komuta**
+**Satır satır cümleler**
 
-| Adım | Cümle | Komutlar |
-| --- | --- | --- |
-| 1 | x'e başlangıcı kopyala. | `load baslangic`, `store x` |
-| 2 | Bitiş geçildiyse bitir. | `load bitis`, `sub x`, `mul adim`, `ifneg son` |
-| 3 | x'i yaz. | `load x`, `print` |
-| 4 | y'yi hesapla ve yaz. | `load a`, `mul x`, `add b`, `mul x`, `add c`, `print` |
-| 5–6 | x'i ilerlet, başa dön. | `load x`, `add adim`, `store x`, `goto dongu` |
-| 7 | Dur. | `stop` |
+| Satır | Şemadaki kutu | Cümle | Komut |
+| --- | --- | --- | --- |
+| 1 | x = baslangic | Başlangıç değerini akümülatöre getir. | `basla  load baslangic` |
+| 2 | | Bu değeri x hücresine kopyala. x başlangıçtan başlasın. | `store x` |
+| 3 | (bitis − x) · adim negatif mi? | Döngünün başı: bitiş değerini getir. | `dongu  load bitis` |
+| 4 | | Bitişten x'i çıkar. Akümülatörde bitişe kalan yol var. | `sub x` |
+| 5 | | Kalan yolu adımla çarp. (Bu satır yalnızca genel çözümde vardır. Adım pozitif çözümünde yoktur.) | `mul adim` |
+| 6 | | Sonuç negatifse bitiş geçilmiştir, son satıra git. | `ifneg son` |
+| 7 | x yaz | x'i akümülatöre getir. | `load x` |
+| 8 | | x'i ekrana yaz. | `print` |
+| 9 | y = (a·x + b)·x + c hesapla, yaz | a'yı akümülatöre getir. | `load a` |
+| 10 | | x ile çarp. Akümülatörde a·x var. | `mul x` |
+| 11 | | Üzerine b'yi ekle. Akümülatörde a·x + b var. | `add b` |
+| 12 | | Yine x ile çarp. Akümülatörde a·x² + b·x var. | `mul x` |
+| 13 | | Üzerine c'yi ekle. Akümülatörde artık y var. | `add c` |
+| 14 | | y'yi ekrana yaz. | `print` |
+| 15 | x = x + adim | x'i yeniden akümülatöre getir. | `load x` |
+| 16 | | Üzerine adımı ekle. | `add adim` |
+| 17 | | Yeni değeri x hücresine sakla. | `store x` |
+| 18 | başa dön | Döngünün başına, 3. satıra dön. | `goto dongu` |
+| 19 | Dur | Programı durdur. | `son  stop` |
 
-**4. adımda akümülatör nasıl değişir?** `load a` → `a`, `mul x` → `a·x`, `add b` → `a·x + b`, `mul x` → `a·x² + b·x`, `add c` → `a·x² + b·x + c`. Ayrı bir `x²` hücresine gerek kalmaz.
+**5. satırdaki tek çarpma neden işe yarar?** Girdi garantisi sayesinde bitiş geçilmediği sürece `bitis − x` ile `adim` aynı işaretlidir ve çarpımları 0 ya da pozitiftir. Bitiş geçildiği anda işaretler ters olur, çarpım negatife düşer. Bitişe tam denk gelinirse çarpım 0 olur ve o x de yazılır.
 
-**2. adımdaki tek çarpma neden işe yarar?** Girdi garantisi sayesinde bitiş geçilmediği sürece `bitis − x` ile `adim` aynı işaretlidir ve çarpımları 0 ya da pozitiftir. Bitiş geçildiği anda işaretler ters olur, çarpım negatife düşer. Bitişe tam denk gelinirse çarpım 0 olur ve o x de yazılır.
+**9–13. satırlarda y nasıl kurulur?** Makinede üs alma yoktur. `a·x² + b·x + c`, `(a·x + b)·x + c` diye yazılırsa yalnızca çarpma ve toplamayla hesaplanır (Horner yöntemi). Ayrı bir `x²` hücresine gerek kalmaz. A grubundan farklı olarak burada 9. satırda `load a` gerekir: akümülatörde x vardır, ama hesap a ile başlar.
 
 ## Adım pozitif olduğunda çözüm
 
@@ -97,7 +104,7 @@ Bu çözüm negatif adımla çalışmaz. Örnek 2'de (adım −2) `bitis − x` 
 | Pozitif | büyür | 0 ya da pozitif | negatif | doğru durur | doğru durur |
 | Negatif | küçülür | 0 ya da negatif | pozitif | ilk turda yanlış durur | doğru durur |
 
-Negatif adımda `bitis − x`'in işareti ters döndüğü için pozitif adım testi yetmez. Genel çözüm bu farkı tek satırla, `sub x`'ten sonra `mul adim` ile giderir. Kalan yolu adımla çarpınca, bitiş geçilmediği sürece iki işaret aynı olur ve çarpım 0 ya da pozitif çıkar. Bitiş geçildiği anda işaretler ters olur ve çarpım negatife düşer. Böylece tek `ifneg` iki yönde de doğru yerde durur. Bu ayrıntı yukarıda, "2. adımdaki tek çarpma neden işe yarar?" paragrafında da anlatıldı.
+Negatif adımda `bitis − x`'in işareti ters döndüğü için pozitif adım testi yetmez. Genel çözüm bu farkı tek satırla, `sub x`'ten sonra `mul adim` ile giderir. Kalan yolu adımla çarpınca, bitiş geçilmediği sürece iki işaret aynı olur ve çarpım 0 ya da pozitif çıkar. Bitiş geçildiği anda işaretler ters olur ve çarpım negatife düşer. Böylece tek `ifneg` iki yönde de doğru yerde durur. Bu ayrıntı yukarıda, "5. satırdaki tek çarpma neden işe yarar?" paragrafında da anlatıldı.
 
 Bunun için girdi garantisi gerekir: adım 0 olmaz, adım pozitifse başlangıç bitişten büyük olmaz, adım negatifse başlangıç bitişten küçük olmaz.
 
@@ -192,18 +199,6 @@ Bu örnek üç tuzağı birlikte yoklar:
 - **Negatif adım:** x büyükten küçüğe gider.
 - **Bitiş atlanır:** x, −1'e hiç denk gelmez, 0'dan sonra −2'ye geçer. −2 yazılmamalıdır.
 - **a negatif:** parabol aşağı doğru açılır. Kökler x = 0 ve x = 4'tür (−x² + 4x = −x(x − 4)), tepe noktası x = 2'de y = 4'tür.
-
-## Akış şeması
-
-```mermaid
-flowchart TD
-    G["x = baslangic"] --> T{"(bitis − x) · adim negatif mi?"}
-    T -- "evet" --> D["Dur"]
-    T -- "hayır" --> X["x yaz"]
-    X --> Y["y = (a·x + b)·x + c hesapla, yaz"]
-    Y --> I["x = x + adim"]
-    I -- "başa dön" --> T
-```
 
 ## Test değerleri (gerçek simülatör motoruyla denendi)
 
